@@ -1,13 +1,41 @@
 package com.ayush.spring_data_jpa_ex;
 
+import com.ayush.spring_data_jpa_ex.model.Student;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class SpringDataJpaExApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringDataJpaExApplication.class, args);
+
+        ApplicationContext context = SpringApplication.run(SpringDataJpaExApplication.class, args);
+
+        StudentRepo repo = context.getBean(StudentRepo.class);
+
+        Student s1 = context.getBean(Student.class);
+        Student s2 = context.getBean(Student.class);
+        Student s3 = context.getBean(Student.class);
+
+        s1.setRollNo(101);
+        s1.setName("ayush");
+        s1.setMarks(8);
+
+        s2.setRollNo(102);
+        s2.setName("anish");
+        s2.setMarks(7);
+
+        s3.setRollNo(103);
+        s3.setName("sanjeel");
+        s3.setMarks(7);
+
+        repo.save(s1);
+        repo.save(s2);
+        repo.save(s3);
+
+
+
 	}
 
 }
