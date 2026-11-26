@@ -41,4 +41,13 @@ public class Student {
     public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "marks=" + marks +
+                ", rollNo=" + rollNo +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
